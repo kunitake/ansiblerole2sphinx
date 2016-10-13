@@ -25,4 +25,4 @@ optional arguments:
 
 ## Example
 
-   $ /ansiblerole2sphinx.py common
+   $ ./ansiblerole2sphinx.py common
