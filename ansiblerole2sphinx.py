@@ -240,13 +240,14 @@ if writable == 1:
         f.write(line + "\n")
 
     if 'value_data' in locals():
-        print "Please check/update ansible-variables.txt"
-        print "Please define ansibleval at conf.py."
-        print_ansibleval()
-        f.write(section_level(u"変数" ,level=2).encode('utf-8'))
-        for value in value_data:
-            f.write(".. ansibleval:: " + value + "\n\n")
-            f.write("  |" + value + "|\n\n")
+	if value_data != None:
+            print "Please check/update ansible-variables.txt"
+       	    print "Please define ansibleval at conf.py."
+     	    print_ansibleval()
+            f.write(section_level(u"変数" ,level=2).encode('utf-8'))
+            for value in value_data:
+                f.write(".. ansibleval:: " + value + "\n\n")
+                f.write("  |" + value + "|\n\n")
 
     (handler_list, results, count) = get_tasklist('handlers')
     if len(handler_list) > 0:
