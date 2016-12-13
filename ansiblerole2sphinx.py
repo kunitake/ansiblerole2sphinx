@@ -237,7 +237,7 @@ if writable == 1:
        f.write(task + "\n")
 
     for line in results:
-        f.write(line + "\n")
+	f.write(line.encode('utf-8')+ "\n")
 
     if 'value_data' in locals():
 	if value_data != None:
