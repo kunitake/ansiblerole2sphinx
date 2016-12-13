@@ -124,7 +124,7 @@ def get_tasklist(mode, targetfile='main.yml',count=0, depth=3):
             # Example:
             # - include: common-packages.yml
             # - include: mongo.yml
-            if len(task) == 1 and module_name[0] == 'include':
+            if subset['name'] is None and module_name[0] == 'include':
                 (include_list, include_results, count) = get_tasklist('tasks', targetfile=value[0], count=count+1, depth=depth)
                 task_list.extend(include_list)
                 results.extend(include_results)
