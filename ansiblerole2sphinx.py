@@ -205,13 +205,14 @@ def print_ansibleval():
 
 role_file = rolename + ".rst"
 writable = 0
-if not os.path.isfile(sphinx_output_dir + "/" + role_file):
-    writable = 1 
-else:
+if os.path.isfile(sphinx_output_dir + "/" + role_file):
+    print "At %s" % sphinx_output_dir
     print "The rolename file(%s) already exists. Do you want to overwrite it?" % role_file
     overwrite = raw_input(prompt)
     if overwrite == 'yes':
         writable = 1
+else:
+    writable = 1 
 
 # Basically, a summary file is edited by author.
 # So, the summary file is not overwrited.
